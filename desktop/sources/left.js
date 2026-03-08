@@ -14,8 +14,8 @@ const Font = require('./scripts/font')
 
 const EOL = '\n'
 
-function Left () {
-  this.theme = new Theme({ background: '#222', f_high: '#eee', f_med: '#888', f_low: '#666', f_inv: '#00f', b_high: '#f9a', b_med: '#a9f', b_low: '#000', b_inv: '#af9' })
+function Left() {
+  this.theme = new Theme({ background: '#212325', f_high: '#fcfffb', f_med: '#888', f_low: '#666', f_inv: '#00f', b_high: '#f9a', b_med: '#a9f', b_low: '#054ada', b_inv: '#af9' })
   this.controller = new Controller()
   this.dictionary = new Dictionary()
   this.operator = new Operator()
@@ -39,7 +39,7 @@ function Left () {
   this.synonyms = null
   this.last_char = 's' // this is not a typo. it's bad code, but it has to be a length one string
 
-  this.autoindent = true
+  this.autoindent = false
 
   this.install = function (host = document.body) {
     this.navi.install(host)

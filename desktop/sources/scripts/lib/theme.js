@@ -1,6 +1,6 @@
 'use strict'
 
-function Theme (_default) {
+function Theme(_default) {
   const fs = require('fs')
   const themer = this
 
@@ -31,7 +31,7 @@ function Theme (_default) {
     const theme = parse(data)
     if (!validate(theme)) { console.warn('Theme', 'Not a theme', theme); return }
     console.log('Theme', 'Loaded theme!')
-    this.el.innerHTML = `:root { --background: ${theme.background}; --f_high: ${theme.f_high}; --f_med: ${theme.f_med}; --f_low: ${theme.f_low}; --f_inv: ${theme.f_inv}; --b_high: ${theme.b_high}; --b_med: ${theme.b_med}; --b_low: ${theme.b_low}; --b_inv: ${theme.b_inv}; }`
+    this.el.innerHTML = `:root { --background: ${theme.background}; --f_high: ${theme.f_high}; --f_med: ${theme.f_med}; --f_low: ${theme.f_low}; --f_inv: ${theme.f_inv}; --b_high: ${theme.b_high}; --b_med: ${theme.b_med}; --b_low: ${theme.b_low}; --b_inv: ${theme.b_inv}; --bg-color: ${theme.background}; --text-color: ${theme.f_high}; }`
     localStorage.setItem('theme', JSON.stringify(theme))
     this.active = theme
     if (this.callback) {
@@ -47,7 +47,7 @@ function Theme (_default) {
     document.body.style.backgroundImage = path && fs.existsSync(path) && document.body.style.backgroundImage !== `url(${path})` ? `url(${path})` : ''
   }
 
-  function parse (any) {
+  function parse(any) {
     if (any && any.background) { return any } else if (any && any.data) { return any.data } else if (any && isJson(any)) { return JSON.parse(any) } else if (any && isHtml(any)) { return extract(any) }
     return null
   }
@@ -89,7 +89,7 @@ function Theme (_default) {
 
   // Helpers
 
-  function validate (json) {
+  function validate(json) {
     if (!json) { return false }
     if (!json.background) { return false }
     if (!json.f_high) { return false }
@@ -103,7 +103,7 @@ function Theme (_default) {
     return true
   }
 
-  function extract (text) {
+  function extract(text) {
     const svg = new DOMParser().parseFromString(text, 'text/xml')
     try {
       return {
@@ -122,11 +122,11 @@ function Theme (_default) {
     }
   }
 
-  function isJson (text) {
+  function isJson(text) {
     try { JSON.parse(text); return true } catch (error) { return false }
   }
 
-  function isHtml (text) {
+  function isHtml(text) {
     try { new DOMParser().parseFromString(text, 'text/xml'); return true } catch (error) { return false }
   }
 }

@@ -1,6 +1,6 @@
 'use strict'
 
-function Navi () {
+function Navi() {
   this.el = document.createElement('navi')
 
   this.install = function (host) {
@@ -27,11 +27,12 @@ function Navi () {
   }
 
   this._page = function (id, page) {
-    return `<li class='page ${page.has_changes() ? 'changes' : ''}' onclick='left.go.to_page(${id})'>${page.name()}</li>`
+    const name = page.name()
+    return `<li class='page ${page.has_changes() ? 'changes' : ''}' onclick='left.go.to_page(${id})' title='${name}'><span>${name}</span></li>`
   }
 
   this._marker = function (pid, current, marker, markers) {
-    return `<li class='marker ${marker.type} ${current && current.line === marker.line ? 'active' : ''}' onclick='left.go.to_page(${pid}, ${marker.line})'><span>${marker.text}</span></li>`
+    return `<li class='marker ${marker.type} ${current && current.line === marker.line ? 'active' : ''}' onclick='left.go.to_page(${pid}, ${marker.line})' title='${marker.text}'><span>${marker.text}</span></li>`
   }
 
   this.next_page = function () {
@@ -96,7 +97,7 @@ function Navi () {
     document.body.classList.toggle('mobile')
   }
 
-  function clamp (v, min, max) { return v < min ? min : v > max ? max : v }
+  function clamp(v, min, max) { return v < min ? min : v > max ? max : v }
 }
 
 module.exports = Navi

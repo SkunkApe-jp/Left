@@ -1,16 +1,17 @@
-function Font () {
+function Font() {
   // Currently, the custom_serif font is Zilla Slab and the custom_sans_serif font is Roboto Condensed. These can be changed by replacing the serif.ttf and sans_serif.ttf fonts in the media/fonts folder.
 
   const root = document.documentElement
 
   this.fonts = [
+    'Cormorant',
     'custom_mono',
     'custom_serif',
     'custom_sans_serif'
   ]
 
   this.fontIndex = 0
-  this.fontSize = 12
+  this.fontSize = 20
 
   // Called when Left is initialized
   this.start = function () {

@@ -2,7 +2,7 @@
 
 const EOL = '\n'
 
-function Stats () {
+function Stats() {
   this.el = document.createElement('stats')
 
   this.install = function (host) {
@@ -32,7 +32,7 @@ function Stats () {
   this._default = function () {
     const stats = this.parse(left.selected())
     const date = new Date()
-    return `${stats.l}L ${stats.w}W ${stats.v}V ${stats.c}C ${stats.p}% <span ${stats.a}>AI</span> <span class='right'>${date.getHours()}:${('0' + date.getMinutes()).slice(-2)}</span>`
+    return `${stats.l}L ${stats.w}W ${stats.v}V ${stats.c}C ${stats.p}% <span class='right'>${date.getHours()}:${('0' + date.getMinutes()).slice(-2)}</span>`
   }
 
   this.incrementSynonym = function () {
@@ -127,7 +127,7 @@ function Stats () {
     return stats
   }
 
-  function clamp (v, min, max) { return v < min ? min : v > max ? max : v }
+  function clamp(v, min, max) { return v < min ? min : v > max ? max : v }
 }
 
 module.exports = Stats

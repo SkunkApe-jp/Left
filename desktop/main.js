@@ -15,13 +15,19 @@ app.on('ready', () => {
     height: 462,
     minWidth: 380,
     minHeight: 360,
-    backgroundColor: '#000',
+    transparent: true,
+    frame: false,
+    vibrancy: 'dark',
     icon: path.join(__dirname, { darwin: 'icon.icns', linux: 'icon.png', win32: 'icon.ico' }[process.platform] || 'icon.ico'),
     resizable: true,
-    frame: process.platform !== 'darwin',
     skipTaskbar: process.platform === 'darwin',
-    autoHideMenuBar: process.platform === 'darwin',
+    autoHideMenuBar: true,
+    show: false,
     webPreferences: { zoomFactor: 1.0, nodeIntegration: true, backgroundThrottling: false }
+  })
+
+  app.win.once('ready-to-show', () => {
+    app.win.show()
   })
 
   app.win.loadURL(`file://${__dirname}/sources/index.html`)
