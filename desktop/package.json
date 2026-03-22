@@ -17,8 +17,7 @@
     "push_linux": "~/Applications/butler push ~/Documents/Left-linux-x64/ hundredrabbits/left:linux-64",
     "push_win": "~/Applications/butler push ~/Documents/Left-win32-x64/ hundredrabbits/left:windows-64",
     "status": "~/Applications/butler status hundredrabbits/left",
-    "push": "npm run build ; npm run push_osx ; npm run push_linux ; npm run push_win ; npm run clean ; npm run status",
-    "release": "node scripts/release.js"
+    "push": "npm run build ; npm run push_osx ; npm run push_linux ; npm run push_win ; npm run clean ; npm run status"
   },
   "devDependencies": {
     "electron": "^7.1.12",
