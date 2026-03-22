@@ -11,8 +11,8 @@ app.win = null
 
 app.on('ready', () => {
   app.win = new BrowserWindow({
-    width: 780,
-    height: 462,
+    width: 1469,
+    height: 548,
     minWidth: 380,
     minHeight: 360,
     transparent: true,

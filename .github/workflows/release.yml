@@ -37,7 +37,7 @@ jobs:
             npm run build_win
             ;;
           macos-latest)
-            electron-packager . Left --platform=darwin --arch=x64 --out ~/Documents/ --overwrite --icon=icon.icns ; echo 'Built for OSX'
+            npm run build_osx
             ;;
         esac
       shell: bash
